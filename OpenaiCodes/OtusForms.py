@@ -12,7 +12,7 @@ def getTime():
     currentTime = currentTime[:19]
     return currentTime
 
-def generate_navigation_structure(num_elements):
+def generate_navigation_structure(num_elements=int, acID='TML'):
     # Define the list for storing the navigation elements
     navigation_list = []
 
@@ -26,8 +26,8 @@ def generate_navigation_structure(num_elements):
         "routes": [{"extents": "SurveyTemplateObject",
                     "objectType": "Route",
                     "origin": "BEGIN NODE",
-                    "destination": "TML1",
-                    "name": "BEGIN NODE_TML1",
+                    "destination": f"{acID}1",
+                    "name": f"BEGIN NODE_{acID}1",
                     "isDefault": True,
                     "conditions": []}]
     }
@@ -44,19 +44,19 @@ def generate_navigation_structure(num_elements):
     }
     navigation_list.append(end_node)
 
-    # Add intermediate TML nodes
+    # Add intermediate acID nodes
     for i in range(num_elements):
-        origin = f"TML{i + 1}"
-        # Destination TML or END NODE
-        destination = f"TML{i + 2}" if i + 1 < num_elements else "END NODE"
+        origin = f"{acID}{i + 1}"
+        # Destination acID or END NODE
+        destination = f"{acID}{i + 2}" if i + 1 < num_elements else "END NODE"
 
-        # Create TML node
-        tml_node = {
+        # Create acID node
+        acID_node = {
             "extents": "SurveyTemplateObject",
             "objectType": "Navigation",
             "origin": origin,
             "index": i + 2,
-            "inNavigations": [{"origin": f"BEGIN NODE" if i == 0 else f"TML{i}", "index": i + 1}],
+            "inNavigations": [{"origin": f"BEGIN NODE" if i == 0 else f"{acID}{i}", "index": i + 1}],
             "routes": [{"extents": "SurveyTemplateObject",
                         "objectType": "Route",
                         "origin": origin,
@@ -65,17 +65,17 @@ def generate_navigation_structure(num_elements):
                         "isDefault": True,
                         "conditions": []}]
         }
-        navigation_list.append(tml_node)
+        navigation_list.append(acID_node)
 
-    # Fill inNavigations for END NODE to point to the last TML node
+    # Fill inNavigations for END NODE to point to the last acID node
     if num_elements > 0:
-        end_node["inNavigations"] = [None, {"origin": f"TML{num_elements}", "index": 1 + num_elements + 1}]
+        end_node["inNavigations"] = [None, {"origin": f"{acID}{num_elements}", "index": 1 + num_elements + 1}]
 
     return {"navigationList": navigation_list}
 
 #userForm = str(input('Describe your desired form:\nGenerate a JSON with '))
 
-def generateJSON(user):    
+def generateJSON(userInput=str, acID='TML', name='formulario'):    
     totalTokens = 0
     load_dotenv() #load enviroment variables
     otus = os.getenv('OPENAI_API_KEY')
@@ -86,8 +86,8 @@ def generateJSON(user):
         "identity": {
             "extents": "StudioObject",
             "objectType": "SurveyIdentity",
-            "name": "testMultipleLabels",
-            "acronym": "TML",
+            "name": name,
+            "acronym": acID,
             "recommendedTo": "",
             "description": "",
             "keywords": []
@@ -144,7 +144,7 @@ def generateJSON(user):
             },
             {
                 "role":"user",
-                "content":f"Generate a JSON with {user}. Do it step by step as specified by the system structure. Return it as a raw JSON, without spaces."
+                "content":f"Generate a JSON with {userInput}. Do it step by step as specified by the system structure. Return it as a raw JSON, without spaces."
             }
         ],
         response_format={"type": "json_object"}
@@ -187,3 +187,8 @@ if __name__ == "__main__":
     userForm = str(input('Describe your desired form:\nGenerate a JSON with '))
     generatedForm = generateJSON(userForm)
     print(generatedForm)
+    
+    #saving sample to my computer
+    mydirectory = '/home/caua/Documents/llm-tests/samples/gpt' #directory where samples are saved
+    with open(f'{mydirectory}/sample_{getTime()}', 'w') as outfile:
+        json.dump(generatedForm, outfile)
