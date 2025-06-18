@@ -1,6 +1,5 @@
 import os
 import json
-import sys
 from openai import OpenAI
 from dotenv import load_dotenv
 from generalFunctions import getTime
