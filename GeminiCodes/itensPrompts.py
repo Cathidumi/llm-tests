@@ -312,12 +312,12 @@ def generateForm(userInput):
             case _:
                 pass
         
-        return itemContainer
+    return itemContainer
 
 
 
 if __name__ == "__main__":
     #generatedJson = singleSelectionQuestion(userToAITranslator.translation('Gere uma pergunta de seleção única'))
     #rint(generatedJson)
-    generateForm('a')
+    print(generateForm('a'))
 
