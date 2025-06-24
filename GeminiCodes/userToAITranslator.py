@@ -35,6 +35,7 @@ def translation(userInput):
   
 
 if __name__ == "__main__":
-  translation('Gere um json com duas perguntas genéricas')
+  generatedJson = translation('Gere um json com duas perguntas genéricas')
+  print(generatedJson)
 
 # -Translate this: **one SingleSelectionQuestion item, with the following question: 'What is your City?' with the following options: 'Porto', 'Alegrete', 'Viamao'. Include one CheckboxQuestion item with the following question: 'what is do you eat?' with the following options: 'meat', 'vegetables'. Include one CalendarQuestion with the following question: 'When is your birthday?'. Include one IntegerQuestion with the following question: 'How Old are you?**

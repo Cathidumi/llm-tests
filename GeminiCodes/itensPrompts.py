@@ -4,6 +4,7 @@ from google import genai
 from google.genai import types
 from dotenv import load_dotenv
 import userToAITranslator
+import json
 
 load_dotenv()
 
@@ -47,7 +48,7 @@ def checkboxQuestion(userInput):
     )
     return response.text
 
-def CalendarQuestion(userInput):
+def calendarQuestion(userInput):
     response = client.models.generate_content(
         model="gemini-2.0-flash",
         config=types.GenerateContentConfig(
@@ -237,7 +238,7 @@ def fileUploadQuestion(userInput):
     )
     return response.text
 
-def ImageItem(userInput):
+def imageItem(userInput):
     response = client.models.generate_content(
         model="gemini-2.0-flash",
         config=types.GenerateContentConfig(
@@ -256,9 +257,67 @@ def ImageItem(userInput):
     )
     return response.text
 
+def generateForm(userInput):
+    #promptList = json.loads(userToAITranslator.translation(userInput))
+    itemContainer = {"itemContainer": []}
+    promptList = json.loads('[{"typeQuestion":"TextQuestion","question":"Enter your name","options":null},{"typeQuestion":"IntegerQuestion","question":"Enter your age","options":null}]')
+    
+    for prompt in promptList:
+        print(prompt["typeQuestion"])
+        
+        match prompt["typeQuestion"]:
+            case "SingleSelectionQuestion":
+                element = singleSelectionQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "CheckboxQuestion":
+                element = checkboxQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "CalendarQuestion":
+                element = calendarQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "IntegerQuestion":
+                element = integerQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "DecimalQuestion":
+                element = decimalQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "TextQuestion":
+                element = textQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "EmailQuestion":
+                element = emailQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "TimeQuestion":
+                element = timeQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "PhoneQuestion":
+                element = phoneQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "TextItem":
+                element = textItem(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "AutocompleteQuestion":
+                element = autocompleteQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "FileUploadQuestion":
+                element = fileUploadQuestion(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "ImageItem":
+                element = imageItem(json.dumps(prompt))
+                itemContainer["itemContainer"].append(element)
+            case "GridIntegerQuestion":
+                pass
+            case "GridTextQuestion":
+                pass
+            case _:
+                pass
+        
+        return itemContainer
+
+
+
 if __name__ == "__main__":
-   generatedJson = singleSelectionQuestion(userToAITranslator.translation('Gere uma pergunta de seleção única'))
+    #generatedJson = singleSelectionQuestion(userToAITranslator.translation('Gere uma pergunta de seleção única'))
+    #rint(generatedJson)
+    generateForm('a')
 
-   print(generatedJson)
-
-   

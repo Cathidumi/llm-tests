@@ -18,12 +18,7 @@ response = client.models.generate_content(
             1. **Top Level Attributes**:
             - `extents`: "SurveyItem", indicating this is a survey item.
             - `objectType`: "GridIntegerQuestion", specifying the type of survey item.
-            - `templateID` and `customID`: Both are set to "TTT1", likely serving as identifiers.
-
-            2. **Labels**:
-            - Provided in three languages: Portuguese (Brazil), English (US), and Spanish (Spain).
-            - Each language has a `plainText` and `formattedText`, but only Portuguese contains the actual text "GridIntegerQuestion input".
-
+            - `templateIDGridIntegerQuestion
             3. **Lines**:
             - This part of the JSON contains an array called `lines`, each element having:
                 - `extents`: "StudioObject" and `objectType`: "GridIntegerLine", which suggests a line within the grid integer question.
