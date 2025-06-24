@@ -181,5 +181,5 @@ if __name__ == "__main__":
     
     #saving sample to my computer
     mydirectory = '/home/caua/Documents/llm-tests/samples/gemini' #directory where samples are saved
-    with open(f'{mydirectory}/sample_{getTime()}', 'w') as outfile:
+    with open(f'{mydirectory}/sample_{getTime()}.json', 'w') as outfile:
         json.dump(generatedForm, outfile)
