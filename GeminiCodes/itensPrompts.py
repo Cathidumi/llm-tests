@@ -258,62 +258,51 @@ def imageItem(userInput):
     )
     return response.text
 
-def generateForm(userInput):
-    #promptList = json.loads(userToAITranslator.translation(userInput))
+def generateItemContainer(userInput):
+    promptList = json.loads(userToAITranslator.translation(userInput))
     itemContainer = {"itemContainer": []}
-    promptList = json.loads('[{"typeQuestion":"TextQuestion","question":"Enter your name","options":null},{"typeQuestion":"IntegerQuestion","question":"Enter your age","options":null}]')
-    
+    #promptList = json.loads('[{"typeQuestion":"TextQuestion","question":"Enter your name","options":null},{"typeQuestion":"IntegerQuestion","question":"Enter your age","options":null}]')
+    element = ''
+
     for prompt in promptList:
         print(prompt["typeQuestion"])
-        
+        element = ''
         match prompt["typeQuestion"]:
             case "SingleSelectionQuestion":
                 element = singleSelectionQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "CheckboxQuestion":
                 element = checkboxQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "CalendarQuestion":
                 element = calendarQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "IntegerQuestion":
                 element = integerQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "DecimalQuestion":
                 element = decimalQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "TextQuestion":
                 element = textQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "EmailQuestion":
                 element = emailQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "TimeQuestion":
                 element = timeQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "PhoneQuestion":
                 element = phoneQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "TextItem":
                 element = textItem(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "AutocompleteQuestion":
                 element = autocompleteQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "FileUploadQuestion":
                 element = fileUploadQuestion(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "ImageItem":
                 element = imageItem(json.dumps(prompt))
-                itemContainer["itemContainer"].append(element)
             case "GridIntegerQuestion":
                 pass
             case "GridTextQuestion":
                 pass
             case _:
                 pass
+        itemContainer["itemContainer"].append(json.loads(element))#append element to the list inside itemContainer Field
     
-    return itemContainer
+    return itemContainer #return dict object containing all generated elements
 
 def generateJSON(userInput=str, acID='TML', name='formulario'):
     form = {
@@ -344,10 +333,9 @@ def generateJSON(userInput=str, acID='TML', name='formulario'):
 
     #print("Generating items...")
 
-    itemCont = generateForm(userInput)
-    print(itemCont)
+    itemCont = generateItemContainer(userInput) #generates item container field
 
-    form['itemContainer'] = itemCont['itemContainer'] #adds generated json to dictionary field
+    form['itemContainer'] = itemCont['itemContainer'] #adds generated field to forms dictionary
 
     numOfItens = len(form['itemContainer'])
 
@@ -373,7 +361,7 @@ def generateJSON(userInput=str, acID='TML', name='formulario'):
                 form['itemContainer'][i]['options'][j]['optionID'] = f'{acronym}{i+1}{alphaArray[j]}'
                 form['itemContainer'][i]['options'][j]['customOptionID'] = f'{acronym}{i+1}{alphaArray[j]}'
         
-    return form
+    return form #retorna dicionario que deve ser convertido para json na exportação
 
 def generate_navigation_structure(num_elements=int, acID='TML'):
     # Define the list for storing the navigation elements
@@ -445,11 +433,12 @@ def getTime():
 
 if __name__ == "__main__":
     #generatedJson = singleSelectionQuestion(userToAITranslator.translation('Gere uma pergunta de seleção única'))
-    #rint(generatedJson)
+    #print(generatedJson)
     userForm = str(input('Describe your desired form:\nGenerate a JSON with '))
     generatedForm = generateJSON(userForm)
     print(generatedForm)
 
     mydirectory = '/home/caua/Documents/llm-tests/samples/gemini' #directory where samples are saved
-    with open(f'{mydirectory}/sample_{getTime()}', 'w') as outfile:
+    with open(f'{mydirectory}/sample_{getTime()}.json', 'w') as outfile:
         json.dump(generatedForm, outfile)
+    
