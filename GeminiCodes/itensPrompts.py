@@ -5,6 +5,7 @@ from google.genai import types
 from dotenv import load_dotenv
 import userToAITranslator
 import json
+from datetime import datetime
 
 load_dotenv()
 
@@ -311,13 +312,144 @@ def generateForm(userInput):
                 pass
             case _:
                 pass
-        
+    
     return itemContainer
 
+def generateJSON(userInput=str, acID='TML', name='formulario'):
+    form = {
+        "extents": "StudioObject",
+        "objectType": "Survey",
+        "oid": "dXNlclVVSUQ6W3VuZGVmaW5lZF1zdXJ2ZXlVVUlEOltkMzllZTg5MC05MDhkLTExZWYtOWZmYS1jOTM3YmMwNTQ1ODddcmVwb3NpdG9yeVVVSUQ6WyBOb3QgZG9uZSB5ZXQgXQ==",
+        "identity": {
+            "extents": "StudioObject",
+            "objectType": "SurveyIdentity",
+            "name": name,
+            "acronym": acID,
+            "recommendedTo": "",
+            "description": "",
+            "keywords": []
+        },
+        "metainfo": {
+            "extents": "StudioObject",
+            "objectType": "SurveyMetaInfo",
+            "creationDatetime": "2024-10-22T15:53:48.697Z",
+            "otusStudioVersion": ""
+        },
+        "dataSources": [],
+        "itemContainer": [],
+        "navigationList": [],
+        "staticVariableList": [],
+        "surveyItemGroupList": []
+    }
 
+    #print("Generating items...")
+
+    itemCont = generateForm(userInput)
+    print(itemCont)
+
+    form['itemContainer'] = itemCont['itemContainer'] #adds generated json to dictionary field
+
+    numOfItens = len(form['itemContainer'])
+
+    #print('Generating navigation...')
+
+    navigationList = generate_navigation_structure(numOfItens)
+
+    form['navigationList'] = navigationList['navigationList']
+
+    #print('Adjusting indexes...')
+
+    acronym = form['identity']['acronym']
+    numOfItens = len(form['itemContainer'])
+    alphaArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+    for i in range(0, numOfItens):
+        form['itemContainer'][i]['templateID'] = f'{acronym}{i+1}'
+        form['itemContainer'][i]['customID'] = f'{acronym}{i+1}'
+
+        if form['itemContainer'][i]['objectType'] == 'CheckboxQuestion':
+            currentIndex = form['itemContainer'][i]['templateID']
+            for j in range(0, len(form['itemContainer'][i]['options'])):
+                form['itemContainer'][i]['options'][j]['optionID'] = f'{acronym}{i+1}{alphaArray[j]}'
+                form['itemContainer'][i]['options'][j]['customOptionID'] = f'{acronym}{i+1}{alphaArray[j]}'
+        
+    return form
+
+def generate_navigation_structure(num_elements=int, acID='TML'):
+    # Define the list for storing the navigation elements
+    navigation_list = []
+
+    # Add the BEGIN NODE
+    begin_node = {
+        "extents": "SurveyTemplateObject",
+        "objectType": "Navigation",
+        "origin": "BEGIN NODE",
+        "index": 0,
+        "inNavigations": [],
+        "routes": [{"extents": "SurveyTemplateObject",
+                    "objectType": "Route",
+                    "origin": "BEGIN NODE",
+                    "destination": f"{acID}1",
+                    "name": f"BEGIN NODE_{acID}1",
+                    "isDefault": True,
+                    "conditions": []}]
+    }
+    navigation_list.append(begin_node)
+
+    # Add the END NODE with placeholder for inNavigations, to fill after adding intermediate nodes
+    end_node = {
+        "extents": "SurveyTemplateObject",
+        "objectType": "Navigation",
+        "origin": "END NODE",
+        "index": 1,
+        "inNavigations": [None] * 2,  # Placeholder for inNavigations
+        "routes": []
+    }
+    navigation_list.append(end_node)
+
+    # Add intermediate acID nodes
+    for i in range(num_elements):
+        origin = f"{acID}{i + 1}"
+        # Destination acID or END NODE
+        destination = f"{acID}{i + 2}" if i + 1 < num_elements else "END NODE"
+
+        # Create acID node
+        acID_node = {
+            "extents": "SurveyTemplateObject",
+            "objectType": "Navigation",
+            "origin": origin,
+            "index": i + 2,
+            "inNavigations": [{"origin": f"BEGIN NODE" if i == 0 else f"{acID}{i}", "index": i + 1}],
+            "routes": [{"extents": "SurveyTemplateObject",
+                        "objectType": "Route",
+                        "origin": origin,
+                        "destination": destination,
+                        "name": f"{origin}_{destination}",
+                        "isDefault": True,
+                        "conditions": []}]
+        }
+        navigation_list.append(acID_node)
+
+    # Fill inNavigations for END NODE to point to the last acID node
+    if num_elements > 0:
+        end_node["inNavigations"] = [None, {"origin": f"{acID}{num_elements}", "index": 1 + num_elements + 1}]
+
+    return {"navigationList": navigation_list}
+
+def getTime():
+    currentTime = str(datetime.now())
+    currentTime = currentTime.replace(' ', 'T')
+    currentTime = currentTime.replace(':', '_')
+    currentTime = currentTime[:19]
+    return currentTime
 
 if __name__ == "__main__":
     #generatedJson = singleSelectionQuestion(userToAITranslator.translation('Gere uma pergunta de seleção única'))
     #rint(generatedJson)
-    print(generateForm('a'))
+    userForm = str(input('Describe your desired form:\nGenerate a JSON with '))
+    generatedForm = generateJSON(userForm)
+    print(generatedForm)
 
+    mydirectory = '/home/caua/Documents/llm-tests/samples/gemini' #directory where samples are saved
+    with open(f'{mydirectory}/sample_{getTime()}', 'w') as outfile:
+        json.dump(generatedForm, outfile)
