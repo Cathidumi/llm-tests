@@ -29,7 +29,10 @@ def translation(userInput):
               - Generate a response without lines and spaces"""
       )
   )
-  print(response.text)
+  generatedJson = response.text
+  #print(generatedJson)
+  return generatedJson
+  
 
 if __name__ == "__main__":
   translation('Gere um json com duas perguntas genéricas')
