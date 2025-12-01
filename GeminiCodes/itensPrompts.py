@@ -434,7 +434,7 @@ def getTime():
 if __name__ == "__main__":
     #generatedJson = singleSelectionQuestion(userToAITranslator.translation('Gere uma pergunta de seleção única'))
     #print(generatedJson)
-    userForm = str(input('Describe your desired form:\nGenerate a JSON with '))
+    userForm = str(input('Gere um instrumento de pesquisa com os seguintes itens:\n'))
     generatedForm = generateJSON(userForm)
     print(generatedForm)
 
