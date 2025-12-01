@@ -305,6 +305,8 @@ def generateItemContainer(userInput):
     return itemContainer #return dict object containing all generated elements
 
 def generateJSON(userInput=str, acID='TML', name='formulario'):
+    """Generates the full JSON form structure based on user input description,
+    including itemContainer and navigationList fields."""
     form = {
         "extents": "StudioObject",
         "objectType": "Survey",
@@ -432,10 +434,12 @@ def getTime():
     return currentTime
 
 if __name__ == "__main__":
-    #generatedJson = singleSelectionQuestion(userToAITranslator.translation('Gere uma pergunta de seleção única'))
-    #print(generatedJson)
+
     userForm = str(input('Gere um instrumento de pesquisa com os seguintes itens:\n'))
-    generatedForm = generateJSON(userForm)
+    generatedForm = generateJSON(
+        userInput=userForm,
+        acID='TML',
+        name='formularioTeste')
     print(generatedForm)
 
     mydirectory = '/home/caua/Documents/llm-tests/samples/gemini' #directory where samples are saved

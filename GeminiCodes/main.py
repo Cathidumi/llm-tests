@@ -4,6 +4,7 @@ from pydantic import BaseModel
 
 #import env variables and OtusFormsGem
 import OtusFormsGem
+import itensPrompts
 from dotenv import load_dotenv
 load_dotenv()#loads env variables
 
@@ -19,12 +20,14 @@ async def root():
 @app.get("/get-survey/")
 async def get_survey():
     userForm = 'one text item element'
-    generatedJSON = OtusFormsGem.generateJSON(userForm)
+    generatedJSON = itensPrompts.generateJSON(userForm)
     return {"message": generatedJSON}
 
 @app.post("/survey/")
 async def create_survey(survey: Survey):
     userForm = survey.description
-    generatedJSON = OtusFormsGem.generateJSON(userForm)
+    generatedJSON = itensPrompts.generateJSON(userForm)
     return {"message": generatedJSON}
     
+if __name__ == "__main__":
+    pass    
