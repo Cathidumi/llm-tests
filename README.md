@@ -40,9 +40,7 @@ Este é o arquivo central da solução recomendada. Ele importa o `userToAITrans
 4.  **Prompts Especializados:** Cada função específica (como `singleSelectionQuestion`) contém um prompt do sistema (System Instruction) altamente detalhado com o esquema JSON exato exigido pelo Otus para aquele tipo de dado.
 5.  **Montagem:** O script agrega todos os itens no campo `itemContainer` e gera automaticamente a estrutura de navegação (`navigationList`) e metadados (`identity`, `metainfo`).
 
-Esta abordagem é mais robusta pois isola a lógica de criação de cada componente, reduzindo alucinações e erros de sintaxe em formulários complexos.
-
-Aqui está um texto técnico adicional focado especificamente na função `generateJSON` do arquivo `GeminiCodes/itensPrompts.py`, formatado para ser anexado à documentação:
+Esta abordagem é isola a lógica de criação de cada componente, reduzindo alucinações e erros de sintaxe em formulários complexos.
 
 -----
 
