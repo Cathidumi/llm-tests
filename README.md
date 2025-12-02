@@ -116,10 +116,10 @@ O projeto possui um servidor API configurado em `main.py` que utiliza a implemen
 python GeminiCodes/itensPrompts.py
 ```
 
-Ou iniciar o servidor FastAPI definido em `main.py`:
+Ou iniciar o servidor FastAPI com Uvicorn definido em `main.py`:
 
 ```bash
-fastapi dev GeminiCodes/main.py
+uvicorn main:app --host 127.0.0.1 --port 8080
 ```
 
 O endpoint POST `/survey/` aceita uma descrição e retorna o JSON gerado usando a lógica do `itensPrompts.py`.
