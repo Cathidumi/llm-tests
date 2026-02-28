@@ -1,0 +1,19 @@
+**
+Contexto:
+Você é um especialista em jornada do paciente, atenção primária à saúde e construção de instrumentos de anamnese pré-consulta.
+
+Tarefa:
+Crie a estrutura de um questionário genérico de triagem para pacientes que estão agendando ou aguardando uma consulta (presencial ou por telemedicina). O objetivo é otimizar o tempo do médico e mapear o estado geral do paciente.
+
+Requisitos obrigatórios:
+
+O questionário deve conter 15 perguntas.
+As perguntas devem ser claras, objetivas e não ambíguas.
+
+
+Formato das perguntas:
+Misture perguntas de múltipla escolha, escala (ex.: nunca / às vezes / frequentemente) e resposta curta.
+
+Ao iniciar, apresente:
+Uma mensagem de introdução padrão para o paciente ler antes de preencher o formulário.
+**

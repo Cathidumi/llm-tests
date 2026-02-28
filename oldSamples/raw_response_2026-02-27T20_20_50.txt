@@ -1,0 +1,2094 @@
+{
+    "itemContainer": [
+        {
+            "extents": "SurveyItem",
+            "objectType": "TextItem",
+            "templateID": "TML10",
+            "customID": "TML10_Intro",
+            "dataType": "String",
+            "value": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Bem-vindo(a) ao questionário sobre Diabetes Mellitus Tipo 1 (DM1).\n\nEste questionário tem como objetivo coletar informações importantes sobre o seu dia a dia com o DM1. Por favor, responda às perguntas da forma mais sincera e completa possível.\n\nOrientações:\n*   Leia atentamente cada pergunta antes de responder.\n*   Escolha a opção que melhor representa a sua situação ou escreva a sua resposta no espaço indicado.\n*   Não se preocupe em acertar ou errar. O importante é expressar a sua experiência.\n\nInterpretação dos resultados:\nEste questionário não substitui uma avaliação médica completa. As respostas fornecem uma visão geral do seu manejo do DM1 e podem ajudar você e sua equipe de saúde a identificar áreas que precisam de atenção.\n\n",
+                    "formattedText": "Bem-vindo(a) ao questionário sobre Diabetes Mellitus Tipo 1 (DM1).\n\nEste questionário tem como objetivo coletar informações importantes sobre o seu dia a dia com o DM1. Por favor, responda às perguntas da forma mais sincera e completa possível.\n\nOrientações:\n*   Leia atentamente cada pergunta antes de responder.\n*   Escolha a opção que melhor representa a sua situação ou escreva a sua resposta no espaço indicado.\n*   Não se preocupe em acertar ou errar. O importante é expressar a sua experiência.\n\nInterpretação dos resultados:\nEste questionário não substitui uma avaliação médica completa. As respostas fornecem uma visão geral do seu manejo do DM1 e podem ajudar você e sua equipe de saúde a identificar áreas que precisam de atenção.\n\n"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            }
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q1",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Com que frequência você mede sua glicemia (nível de açúcar no sangue) por dia?",
+                    "formattedText": "Com que frequência você mede sua glicemia (nível de açúcar no sangue) por dia?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Menos de 4 vezes",
+                            "formattedText": "Menos de 4 vezes"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "4-6 vezes",
+                            "formattedText": "4-6 vezes"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Mais de 6 vezes",
+                            "formattedText": "Mais de 6 vezes"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            },
+            "imageUrl": null
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "TextQuestion",
+            "templateID": "TML6",
+            "customID": "Q2",
+            "dataType": "String",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Qual é a sua meta de glicemia antes das refeições?",
+                    "formattedText": "Qual é a sua meta de glicemia antes das refeições?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q3",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Com que frequência você verifica a presença de cetonas na urina ou no sangue quando a glicemia está alta?",
+                    "formattedText": "Com que frequência você verifica a presença de cetonas na urina ou no sangue quando a glicemia está alta?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Sempre",
+                            "formattedText": "Sempre"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Às vezes",
+                            "formattedText": "Às vezes"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Nunca",
+                            "formattedText": "Nunca"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            },
+            "imageUrl": null
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q4",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Com que frequência você tem hipoglicemia (nível de açúcar baixo no sangue)?",
+                    "formattedText": "Com que frequência você tem hipoglicemia (nível de açúcar baixo no sangue)?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Raramente ou nunca",
+                            "formattedText": "Raramente ou nunca"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Às vezes (1-2 vezes por semana)",
+                            "formattedText": "Às vezes (1-2 vezes por semana)"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Frequentemente (mais de 2 vezes por semana)",
+                            "formattedText": "Frequentemente (mais de 2 vezes por semana)"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            },
+            "imageUrl": null
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "TextQuestion",
+            "templateID": "TML6",
+            "customID": "Q5",
+            "dataType": "String",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "O que você geralmente faz quando tem hipoglicemia?",
+                    "formattedText": "O que você geralmente faz quando tem hipoglicemia?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q6",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Você sabe como ajustar a dose de insulina em relação à sua alimentação e atividade física?",
+                    "formattedText": "Você sabe como ajustar a dose de insulina em relação à sua alimentação e atividade física?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Sim, sempre",
+                            "formattedText": "Sim, sempre"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Às vezes",
+                            "formattedText": "Às vezes"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Não",
+                            "formattedText": "Não"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            },
+            "imageUrl": null
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "CheckboxQuestion",
+            "templateID": "TML2",
+            "customID": "Q7",
+            "dataType": "Array",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Quais dos seguintes locais você usa para aplicar insulina? (Marque todos que se aplicam)",
+                    "formattedText": "Quais dos seguintes locais você usa para aplicar insulina? (Marque todos que se aplicam)"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "CheckboxAnswerOption",
+                    "optionID": "Q7a",
+                    "customOptionID": "Q7a",
+                    "dataType": "Boolean",
+                    "value": false,
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Abdômen",
+                            "formattedText": "Abdômen"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "CheckboxAnswerOption",
+                    "optionID": "Q7b",
+                    "customOptionID": "Q7b",
+                    "dataType": "Boolean",
+                    "value": false,
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Braços",
+                            "formattedText": "Braços"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "CheckboxAnswerOption",
+                    "optionID": "Q7c",
+                    "customOptionID": "Q7c",
+                    "dataType": "Boolean",
+                    "value": false,
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Coxas",
+                            "formattedText": "Coxas"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "CheckboxAnswerOption",
+                    "optionID": "Q7d",
+                    "customOptionID": "Q7d",
+                    "dataType": "Boolean",
+                    "value": false,
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Nádegas",
+                            "formattedText": "Nádegas"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q8",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Com que frequência você muda o local de aplicação da insulina?",
+                    "formattedText": "Com que frequência você muda o local de aplicação da insulina?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Sempre",
+                            "formattedText": "Sempre"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Às vezes",
+                            "formattedText": "Às vezes"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Nunca",
+                            "formattedText": "Nunca"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            },
+            "imageUrl": null
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "TextQuestion",
+            "templateID": "TML6",
+            "customID": "Q9",
+            "dataType": "String",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Qual tipo de insulina você usa? (Ex: Insulina de ação rápida, Insulina de ação lenta)",
+                    "formattedText": "Qual tipo de insulina você usa? (Ex: Insulina de ação rápida, Insulina de ação lenta)"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q10",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Com que frequência você se exercita?",
+                    "formattedText": "Com que frequência você se exercita?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Regularmente (pelo menos 3 vezes por semana)",
+                            "formattedText": "Regularmente (pelo menos 3 vezes por semana)"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Às vezes (1-2 vezes por semana)",
+                            "formattedText": "Às vezes (1-2 vezes por semana)"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Raramente ou nunca",
+                            "formattedText": "Raramente ou nunca"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            },
+            "imageUrl": null
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q11",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Você costuma levar lanches para prevenir hipoglicemia durante o exercício?",
+                    "formattedText": "Você costuma levar lanches para prevenir hipoglicemia durante o exercício?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Sempre",
+                            "formattedText": "Sempre"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Às vezes",
+                            "formattedText": "Às vezes"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Nunca",
+                            "formattedText": "Nunca"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            },
+            "imageUrl": null
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "TextQuestion",
+            "templateID": "TML6",
+            "customID": "Q12",
+            "dataType": "String",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Você já teve alguma complicação relacionada ao diabetes? Se sim, qual(is)?",
+                    "formattedText": "Você já teve alguma complicação relacionada ao diabetes? Se sim, qual(is)?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q13",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Com que frequência você consulta um oftalmologista para exame de retina?",
+                    "formattedText": "Com que frequência você consulta um oftalmologista para exame de retina?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Anualmente",
+                            "formattedText": "Anualmente"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "A cada dois anos",
+                            "formattedText": "A cada dois anos"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Nunca ou raramente",
+                            "formattedText": "Nunca ou raramente"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            },
+            "imageUrl": null
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q14",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Com que frequência você faz exame de sangue para verificar a função renal?",
+                    "formattedText": "Com que frequência você faz exame de sangue para verificar a função renal?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Anualmente",
+                            "formattedText": "Anualmente"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "A cada dois anos",
+                            "formattedText": "A cada dois anos"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Nunca ou raramente",
+                            "formattedText": "Nunca ou raramente"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            },
+            "imageUrl": null
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q15",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Você verifica seus pés regularmente para detectar feridas ou bolhas?",
+                    "formattedText": "Você verifica seus pés regularmente para detectar feridas ou bolhas?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Diariamente",
+                            "formattedText": "Diariamente"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Semanalmente",
+                            "formattedText": "Semanalmente"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Nunca ou raramente",
+                            "formattedText": "Nunca ou raramente"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            },
+            "imageUrl": null
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "TextQuestion",
+            "templateID": "TML6",
+            "customID": "Q16",
+            "dataType": "String",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Você tem alguma dificuldade em seguir o plano de tratamento do diabetes? Se sim, qual(is)?",
+                    "formattedText": "Você tem alguma dificuldade em seguir o plano de tratamento do diabetes? Se sim, qual(is)?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "mandatory",
+                        "data": {
+                            "canBeIgnored": false,
+                            "reference": true
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "extents": "SurveyItem",
+            "objectType": "SingleSelectionQuestion",
+            "templateID": "TML1",
+            "customID": "Q17",
+            "dataType": "Integer",
+            "label": {
+                "ptBR": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "Você se sente sobrecarregado(a) ou estressado(a) em relação ao diabetes?",
+                    "formattedText": "Você se sente sobrecarregado(a) ou estressado(a) em relação ao diabetes?"
+                },
+                "enUS": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                },
+                "esES": {
+                    "extends": "StudioObject",
+                    "objectType": "Label",
+                    "oid": "",
+                    "plainText": "",
+                    "formattedText": ""
+                }
+            },
+            "options": [
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 1,
+                    "extractionValue": 1,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Sempre ou frequentemente",
+                            "formattedText": "Sempre ou frequentemente"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 2,
+                    "extractionValue": 2,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Às vezes",
+                            "formattedText": "Às vezes"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                },
+                {
+                    "extents": "StudioObject",
+                    "objectType": "AnswerOption",
+                    "value": 3,
+                    "extractionValue": 3,
+                    "imageUrl": null,
+                    "imageTitle": false,
+                    "dataType": "Integer",
+                    "label": {
+                        "ptBR": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "Raramente ou nunca",
+                            "formattedText": "Raramente ou nunca"
+                        },
+                        "enUS": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        },
+                        "esES": {
+                            "extends": "StudioObject",
+                            "objectType": "Label",
+                            "oid": "",
+                            "plainText": "",
+                            "formattedText": ""
+                        }
+                    }
+                }
+            ],
+            "metadata": {
+                "extents": "StudioObject",
+                "objectType": "MetadataGroup",
+                "options": []
+            },
+            "fillingRules": {
+                "extends": "StudioObject",
+                "objectType": "FillingRules",
+                "options": {
+                    "mandatory": {
+                        "extends": "StudioObject",
+                        "objectType": "Rule",
+                        "validatorType": "oi"
+                    }
+                }
+            }
+        }
+    ]
+}

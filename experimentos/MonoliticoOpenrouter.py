@@ -3,6 +3,7 @@ import json
 from datetime import datetime
 from openai import OpenAI
 from dotenv import load_dotenv
+from time import sleep
 
 
 def getTime():
@@ -149,7 +150,20 @@ def generateJSON(userInput=str, acID='TML', name='formulario', modelo='gpt-4o'):
     )
 
     totalTokens += itensCompletion.usage.total_tokens
-    itemCont = json.loads(itensCompletion.choices[0].message.content) #loads generated itemContainer field json to variable
+    
+    completition = itensCompletion.choices[0].message.content
+
+    try:
+        itemCont = json.loads(itensCompletion.choices[0].message.content) #loads generated itemContainer field json to variable
+    except json.JSONDecodeError as e:
+        print(f'Error decoding JSON: {e}')
+        
+        with open(f'error_log_json_{getTime()}.txt', 'a') as error_file:
+            error_file.write(f'{getTime()} - Error decoding JSON: {e}\n')
+        
+        with open(f'raw_response_{getTime()}.txt', 'w') as raw_file:
+            raw_file.write(completition)
+        return None
 
     form['itemContainer'] = itemCont['itemContainer'] #adds generated json to dictionary field
 
@@ -182,12 +196,63 @@ def generateJSON(userInput=str, acID='TML', name='formulario', modelo='gpt-4o'):
     #print(f'Finished with {totalTokens} used tokens')
 
 if __name__ == "__main__":
-    userForm = str(input('Describe your desired form:\nGenerate a JSON with '))
-    model = 'google/gemini-2.0-flash-001'
-    generatedForm = generateJSON(userForm, modelo=model)
-    print(generatedForm)
-    
+    listaModelos = ['google/gemini-2.0-flash-001', 'gpt-4o', 'openai/gpt-4o-mini','google/gemini-2.5-flash-lite' ,'google/gemini-2.5-flash', 'google/gemini-2.5-pro' ]
+    #userForm = str(input('Describe your desired form:\nGenerate a JSON with '))
 
+    prompt = 'prompt1.txt'
+
+    with open (f'{os.path.dirname(os.path.abspath(__file__))}/{prompt}', 'r') as file:
+        userForm = file.read()
+
+    #print(userForm)
+
+    model = listaModelos[5] #choose the model to be used in generation, changing the index will change the model
+
+
+    for i in range(10): #number of forms to be generated
+        try:
+            print(f'Tentativa formulário {i+1}...')
+            generatedForm = generateJSON(userForm, modelo=model)
+            
+            #saving sample to my computer
+            mydirectory = os.path.dirname(os.path.abspath(__file__))
+            mydirectory = mydirectory.replace('experimentos', 'samples')
+            if not os.path.exists(mydirectory):
+                os.makedirs(mydirectory)
+
+            if model == 'google/gemini-2.0-flash-001':
+                experiment = 'sample_MO_Gemini20Flash'
+            elif model == 'gpt-4o':
+                experiment = 'sample_MO_GPT4o'
+            elif model == 'openai/gpt-4o-mini':
+                experiment = 'sample_MO_GPT4oMini'
+            elif model == 'google/gemini-2.0-flash-lite-001':
+                experiment = 'sample_MO_Gemini20FlashLite'
+            elif model == 'google/gemini-2.5-flash-lite':   
+                experiment = 'sample_MO_Gemini25FlashLite'
+            elif model == 'google/gemini-2.5-flash':
+                experiment = 'sample_MO_Gemini25Flash'
+            elif model == 'google/gemini-2.5-pro':
+                experiment = 'sample_MO_Gemini25Pro'
+            else:
+                experiment = 'sample_MO_OpenRouter'
+
+            if os.name == 'nt': #windows
+                with open(f'{mydirectory}\\{experiment}_{getTime()}.json', 'w') as outfile:
+                    json.dump(generatedForm, outfile)
+            else: #linux or others
+                with open(f'{mydirectory}/{experiment}_{getTime()}.json', 'w') as outfile:
+                    json.dump(generatedForm, outfile) 
+
+        except Exception as e:
+            print(f'Error generating form {i+1}: {e}')
+            with open(f'error_log_{getTime()}.txt', 'a') as error_file:
+                error_file.write(f'{getTime()} - Error generating form {i+1}: {e}\n')
+            pass
+        
+        sleep(15) #sleep to avoid hitting rate limits
+
+""" 
     #saving sample to my computer
     mydirectory = os.path.dirname(os.path.abspath(__file__))
     mydirectory = mydirectory.replace('experimentos', 'samples')
@@ -207,3 +272,4 @@ if __name__ == "__main__":
     else: #linux or others
         with open(f'{mydirectory}/{experiment}_{getTime()}.json', 'w') as outfile:
             json.dump(generatedForm, outfile)  
+ """
