@@ -74,32 +74,62 @@ def getTime():
 
 if __name__ == "__main__":
 
-    model = 'gpt-4o' #choose the model to be used in generation, changing the index will change the model
-    userForm = str(input('Gere um instrumento de pesquisa com os seguintes itens:\n'))
-    generatedForm = generateJSON(
-        userInput=userForm,
-        acID='TML',
-        name='formularioTeste',
-        modelo=model
-        )
-    print(generatedForm)
+    #listaModelos = ['google/gemini-2.0-flash-001', 'gpt-4o', 'openai/gpt-4o-mini','google/gemini-2.5-flash-lite' ,'google/gemini-2.5-flash', 'google/gemini-2.5-pro' ]
+    #listaModelos = ['gpt-4o'] #test with only one model to avoid hitting rate limits during development
+    listaModelos = ['google/gemini-2.5-pro']
 
-    mydirectory = os.path.dirname(os.path.abspath(__file__))
-    mydirectory = mydirectory.replace('experimentos', 'samples')
-    mydirectory = mydirectory.replace('/modularOpenrouter', '')
-    if not os.path.exists(mydirectory):
-        os.makedirs(mydirectory)
+    prompt = 'prompt3.txt'
 
-    if model == 'google/gemini-2.0-flash-001':
-        experiment = 'sample_MD_Gemini20Flash'
-    elif model == 'gpt-4o':
-        experiment = 'sample_MD_GPT4o'
-    else:
-        experiment = 'sample_MD_OpenRouter'
+    with open (f'{os.path.dirname(os.path.abspath(__file__))}/{prompt}', 'r') as file:
+        userForm = file.read()
 
-    if os.name == 'nt': #windows
-        with open(f'{mydirectory}\\{experiment}_{getTime()}.json', 'w') as outfile:
-            json.dump(generatedForm, outfile)
-    else: #linux or others
-        with open(f'{mydirectory}/{experiment}_{getTime()}.json', 'w') as outfile:
-            json.dump(generatedForm, outfile) 
+
+    #model = listaModelos[5] #choose the model to be used in generation, changing the index will change the model
+
+    for model in listaModelos:
+        if model == 'google/gemini-2.0-flash-001':
+            experiment = 'sample_MO_Gemini20Flash'
+        elif model == 'gpt-4o':
+            experiment = 'sample_MO_GPT4o'
+        elif model == 'openai/gpt-4o-mini':
+            experiment = 'sample_MO_GPT4oMini'
+        elif model == 'google/gemini-2.0-flash-lite-001':
+            experiment = 'sample_MO_Gemini20FlashLite'
+        elif model == 'google/gemini-2.5-flash-lite':   
+            experiment = 'sample_MO_Gemini25FlashLite'
+        elif model == 'google/gemini-2.5-flash':
+            experiment = 'sample_MO_Gemini25Flash'
+        elif model == 'google/gemini-2.5-pro':
+            experiment = 'sample_MO_Gemini25Pro'
+        else:
+            experiment = 'sample_MO_OpenRouter'
+        for i in range(1,10,1): #number of forms to be generatedç~~~
+            try:
+                print(f'Tentativa formulário {i+1}...')
+                generatedForm = generatedForm = generateJSON(
+                    userInput=userForm,
+                    acID='TML',
+                    name='formularioTeste',
+                    modelo=model)
+                
+                #saving sample to my computer
+                mydirectory = os.path.dirname(os.path.abspath(__file__))
+                mydirectory = mydirectory.replace('experimentos', 'samples')
+                mydirectory = mydirectory.replace('/modularOpenrouter', '')
+                if not os.path.exists(mydirectory):
+                    os.makedirs(mydirectory)
+
+                if os.name == 'nt': #windows
+                    with open(f'{mydirectory}\\{experiment}_{getTime()}.json', 'w') as outfile:
+                        json.dump(generatedForm, outfile)
+                else: #linux or others
+                    with open(f'{mydirectory}/{experiment}_{getTime()}.json', 'w') as outfile:
+                        json.dump(generatedForm, outfile) 
+
+            except Exception as e:
+                print(f'Error generating form {i+1}: {e}')
+                with open(f'error_log_{experiment}_{getTime()}.txt', 'a') as error_file:
+                    error_file.write(f'{getTime()} - Error generating form {i+1}: {e}\n')
+                pass
+        
+            #sleep(15) #sleep to avoid hitting rate limits

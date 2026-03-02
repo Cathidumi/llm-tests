@@ -213,15 +213,15 @@ def generateJSON(userInput=str, acID='TML', name='formulario', modelo='gpt-4o'):
     #print(f'Finished with {totalTokens} used tokens')
 
 if __name__ == "__main__":
-    listaModelos = ['google/gemini-2.0-flash-001', 'gpt-4o', 'openai/gpt-4o-mini','google/gemini-2.5-flash-lite' ,'google/gemini-2.5-flash', 'google/gemini-2.5-pro' ]
-    #userForm = str(input('Describe your desired form:\nGenerate a JSON with '))
+    #listaModelos = ['google/gemini-2.0-flash-001', 'gpt-4o', 'openai/gpt-4o-mini','google/gemini-2.5-flash-lite' ,'google/gemini-2.5-flash', 'google/gemini-2.5-pro' ]
+    #listaModelos = ['gpt-4o'] #uncomment to test only one model
+    listaModelos = ['google/gemini-2.5-pro']
 
-    prompt = 'prompt4.txt'
+    prompt = 'prompt1.txt'
 
     with open (f'{os.path.dirname(os.path.abspath(__file__))}/{prompt}', 'r') as file:
         userForm = file.read()
 
-    #print(userForm)
 
     #model = listaModelos[5] #choose the model to be used in generation, changing the index will change the model
 
