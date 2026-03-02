@@ -75,8 +75,12 @@ def getTime():
 if __name__ == "__main__":
 
     #listaModelos = ['google/gemini-2.0-flash-001', 'gpt-4o', 'openai/gpt-4o-mini','google/gemini-2.5-flash-lite' ,'google/gemini-2.5-flash', 'google/gemini-2.5-pro' ]
-    #listaModelos = ['gpt-4o'] #test with only one model to avoid hitting rate limits during development
-    listaModelos = ['google/gemini-2.5-pro']
+    listaModelos = ['gpt-4o'] #test with only one model to avoid hitting rate limits during development
+
+    
+    questdirectory = os.path.dirname(os.path.abspath(__file__))
+    questdirectory = questdirectory.replace('experimentos', 'questforms')
+    questdirectory = questdirectory.replace('/modularOpenrouter', '')
 
     prompt = 'prompt3.txt'
 
