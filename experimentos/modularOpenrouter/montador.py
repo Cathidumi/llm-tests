@@ -82,9 +82,9 @@ if __name__ == "__main__":
     questdirectory = questdirectory.replace('experimentos', 'questforms')
     questdirectory = questdirectory.replace('/modularOpenrouter', '')
 
-    prompt = 'prompt3.txt'
+    form = 'prompt3.txt'
 
-    with open (f'{os.path.dirname(os.path.abspath(__file__))}/{prompt}', 'r') as file:
+    with open (f'{questdirectory}/{form}', 'r') as file:
         userForm = file.read()
 
 

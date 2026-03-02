@@ -1,0 +1,39 @@
+1. Qual a sua idade atual?
+Tipo: Número
+2. Com que idade você recebeu o diagnóstico de Diabetes Mellitus Tipo 1?
+Tipo: Número
+3. Qual o tipo de insulina que você utiliza atualmente para o controle basal?
+Tipo: Múltipla escolha
+Opções: Glargina, Detemir, Degludeca, NPH, Outra
+4. Como é feita a administração da sua insulina?
+Tipo: Múltipla escolha
+Opções: Caneta de aplicação, Seringa, Sistema de Infusão Contínua (Bomba de Insulina)
+5. Quantas vezes ao dia, em média, você realiza a monitorização da glicemia capilar (ponta de dedo)?
+Tipo: Número
+6. Você utiliza algum sistema de monitorização contínua da glicose (ex: FreeStyle Libre, Dexcom)?
+Tipo: Múltipla escolha
+Opções: Sim, Não
+7. Qual foi o valor do seu último exame de Hemoglobina Glicada (HbA1c)?
+Tipo: Texto curto
+8. Com que frequência você apresenta episódios de hipoglicemia (glicose abaixo de 70 mg/dL) por semana?
+Tipo: Múltipla escolha
+Opções: Nunca, 1 a 2 vezes, 3 a 5 vezes, Diariamente
+9. Você sabe realizar a contagem de carboidratos para o cálculo da dose de insulina rápida/ultrarrápida?
+Tipo: Múltipla escolha
+Opções: Sim, Não, Tenho dificuldades
+10. Assinale os sintomas de hipoglicemia que você costuma sentir:
+Tipo: Caixa de seleção
+Opções: Tremor, Suor frio, Tontura, Confusão mental, Fome excessiva, Visão turva
+11. Você já teve algum episódio de Cetoacidose Diabética que necessitou de internação hospitalar?
+Tipo: Múltipla escolha
+Opções: Sim, Não
+12. Pratica atividades físicas regularmente?
+Tipo: Múltipla escolha
+Opções: Sim, Não
+13. Se pratica exercícios, como você ajusta a dose de insulina ou alimentação antes da atividade?
+Tipo: Texto longo
+14. Quando foi a sua última consulta com um médico endocrinologista?
+Tipo: Data
+15. Você possui diagnóstico de alguma complicação relacionada ao diabetes (retinopatia, nefropatia ou neuropatia)?
+Tipo: Caixa de seleção
+Opções: Retinopatia, Nefropatia, Neuropatia, Nenhuma das anteriores
