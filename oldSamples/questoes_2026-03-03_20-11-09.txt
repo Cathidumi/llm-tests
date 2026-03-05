@@ -1,0 +1,1 @@
+[{"typeQuestion": "TextQuestion", "question": "Qual \u00e9 o principal motivo da sua vinda \u00e0 unidade de sa\u00fade hoje?", "options": null}]

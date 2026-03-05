@@ -1,0 +1,1 @@
+[{"typeQuestion": "SingleSelectionQuestion", "question": "What is your favorite color?", "options": ["Red", "Blue", "Green", "Yellow"]}, {"typeQuestion": "IntegerQuestion", "question": "How many pets do you own?", "options": null}]

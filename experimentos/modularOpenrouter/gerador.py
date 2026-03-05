@@ -1,7 +1,5 @@
 
 import os
-from google import genai
-from google.genai import types
 from dotenv import load_dotenv
 import interpretador
 import json
@@ -13,7 +11,7 @@ from openai import OpenAI
 load_dotenv()
 client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.getenv('OPENROUTER_API_KEY'))
 
-def singleSelectionQuestion(userInput, modelo='gpt-4o'):
+def singleSelectionQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -38,7 +36,7 @@ def singleSelectionQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def checkboxQuestion(userInput, modelo='gpt-4o'):
+def checkboxQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -63,7 +61,7 @@ def checkboxQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def calendarQuestion(userInput, modelo='gpt-4o'):
+def calendarQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -88,7 +86,7 @@ def calendarQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def integerQuestion(userInput, modelo='gpt-4o'):
+def integerQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -113,7 +111,7 @@ def integerQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def decimalQuestion(userInput, modelo='gpt-4o'):
+def decimalQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -138,7 +136,7 @@ def decimalQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def textQuestion(userInput, modelo='gpt-4o'):
+def textQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -163,7 +161,7 @@ def textQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def emailQuestion(userInput, modelo='gpt-4o'):
+def emailQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -188,7 +186,7 @@ def emailQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def timeQuestion(userInput, modelo='gpt-4o'):
+def timeQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -213,7 +211,7 @@ def timeQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def phoneQuestion(userInput, modelo='gpt-4o'):
+def phoneQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -238,7 +236,7 @@ def phoneQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def textItem(userInput, modelo='gpt-4o'):
+def textItem(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -263,7 +261,7 @@ def textItem(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def autocompleteQuestion(userInput, modelo='gpt-4o'):
+def autocompleteQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -288,7 +286,7 @@ def autocompleteQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def fileUploadQuestion(userInput, modelo='gpt-4o'):
+def fileUploadQuestion(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -313,7 +311,7 @@ def fileUploadQuestion(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def imageItem(userInput, modelo='gpt-4o'):
+def imageItem(userInput, modelo):
     itensCompletion = client.chat.completions.create(
     model=modelo,
     messages=[
@@ -338,17 +336,22 @@ def imageItem(userInput, modelo='gpt-4o'):
     )
     return itensCompletion.choices[0].message.content
 
-def generateItemContainer(userInput, modelo='gpt-4o'):
+def generateItemContainer(userInput, modelo):
     load_dotenv()
     API_KEY = os.getenv('OPENROUTER_API_KEY')
     client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=API_KEY)
 
-    promptList = json.loads(interpretador.translation(userInput))
+    promptList = interpretador.translation(userInput, modelInterpreter=modelo)
+    if 'error' in promptList:
+        print('erro na interpretação')
+        generationLog = {"interpretation": str(promptList), "itemContainer": None, "error": f"Error during interpretation"} #create a dict to log the interpretation, the generated item container and the error message
+        return generationLog #return dict object containing all generated elements and the error message
+
     itemContainer = {"itemContainer": []}
     element = ''
-
+    print('Gerando item container...')
     for prompt in promptList:
-        print(prompt["typeQuestion"])
+        #print(prompt["typeQuestion"])
         element = ''
         match prompt["typeQuestion"]:
             case "SingleSelectionQuestion":
@@ -383,9 +386,23 @@ def generateItemContainer(userInput, modelo='gpt-4o'):
                 pass
             case _:
                 pass
-        itemContainer["itemContainer"].append(json.loads(element))#append element to the list inside itemContainer Field
-    
-    return itemContainer #return dict object containing all generated elements
+        try:
+            itemContainer["itemContainer"].append(json.loads(element)) #append element to the list inside itemContainer Field
+        except json.JSONDecodeError:
+            print('Erro na geração de item')
+            itemContainer["itemContainer"].append(element) #if the element is not a valid JSON, append it as a string to the list inside itemContainer Field
+            generationLog = {"interpretation": promptList, "itemContainer": itemContainer["itemContainer"], "error": f"Error decoding JSON for element"} #create a dict to log the interpretation, the generated item container and the error message
+            return generationLog #return dict object containing all generated elements and the error message
+        except Exception as e:
+            print('Erro inesperado no item container')
+            itemContainer["itemContainer"].append(element) #if any other error occurs, append the element as a string to the list inside itemContainer Field
+            generationLog = {"interpretation": promptList, "itemContainer": itemContainer["itemContainer"], "error": f"Unexpected error for element, error message: {str(e)}"} #create a dict to log the interpretation, the generated item container and the error message
+            return generationLog #return dict object containing all generated elements and the error message
+
+    generationLog = {"interpretation": promptList,
+                     "itemContainer": itemContainer["itemContainer"]} #create a dict to log the interpretation and the generated item container
+    print('Item container gerado com sucesso')
+    return generationLog #return dict object containing all generated elements
 
 def generate_navigation_structure(num_elements=int, acID='TML'):
     # Define the list for storing the navigation elements
@@ -447,3 +464,4 @@ def generate_navigation_structure(num_elements=int, acID='TML'):
         end_node["inNavigations"] = [None, {"origin": f"{acID}{num_elements}", "index": 1 + num_elements + 1}]
 
     return {"navigationList": navigation_list}
+

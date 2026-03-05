@@ -1,0 +1,1 @@
+[{'typeQuestion': 'TextQuestion', 'question': 'Qual é o principal motivo da sua vinda à unidade de saúde hoje?', 'options': None}]

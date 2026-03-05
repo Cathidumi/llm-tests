@@ -34,9 +34,13 @@ def generateJSON(userInput=str, acID='TML', name='formulario', modelo='gpt-4o'):
 
     #print("Generating items...")
 
-    itemCont = gerador.generateItemContainer(userInput, modelo=modelo) #generates item container field
+    generationLog = gerador.generateItemContainer(userInput, modelo=modelo) #generates item container field
 
-    form['itemContainer'] = itemCont['itemContainer'] #adds generated field to forms dictionary
+    # Encerra em caso de erro na geração de itens
+    if 'error' in generationLog:
+        return generationLog
+     
+    form['itemContainer'] = generationLog['itemContainer'] #adds generated field to forms dictionary
 
     numOfItens = len(form['itemContainer'])
 
@@ -61,8 +65,9 @@ def generateJSON(userInput=str, acID='TML', name='formulario', modelo='gpt-4o'):
             for j in range(0, len(form['itemContainer'][i]['options'])):
                 form['itemContainer'][i]['options'][j]['optionID'] = f'{acronym}{i+1}{alphaArray[j]}'
                 form['itemContainer'][i]['options'][j]['customOptionID'] = f'{acronym}{i+1}{alphaArray[j]}'
-        
-    return form #retorna dicionario que deve ser convertido para json na exportação
+
+    generationLog['finalForm'] = form #add final form structure to generation log    
+    return generationLog #retorna dicionario que deve ser convertido para json na exportação
 
 def getTime():
     currentTime = str(datetime.now())
@@ -74,26 +79,35 @@ def getTime():
 
 if __name__ == "__main__":
 
-    #listaModelos = ['google/gemini-2.0-flash-001', 'gpt-4o', 'openai/gpt-4o-mini','google/gemini-2.5-flash-lite' ,'google/gemini-2.5-flash', 'google/gemini-2.5-pro' ]
-    listaModelos = ['gpt-4o'] #test with only one model to avoid hitting rate limits during development
-
+    #listaModelos = ['google/gemini-2.0-flash-001', 'gpt-4o', 'openai/gpt-4o-mini','google/gemini-2.5-flash-lite' ,'google/gemini-2.5-flash']
+    listaModelos = ['google/gemini-2.5-flash-lite'] #test with only one model to avoid hitting rate limits during development
+    #listaModelos = ['google/gemini-2.0-flash-001']
     
+    #formulário de entrada
+    inputForm = int(input('Digite o número do questionário (3 a 10): '))
+    form = f'quest{inputForm}.txt'
+    formNumber = form.replace('.txt', '')
+
+    #ajustando diretório para ler os formulários de entrada
     questdirectory = os.path.dirname(os.path.abspath(__file__))
     questdirectory = questdirectory.replace('experimentos', 'questforms')
     questdirectory = questdirectory.replace('/modularOpenrouter', '')
 
-    form = 'prompt3.txt'
 
     with open (f'{questdirectory}/{form}', 'r') as file:
         userForm = file.read()
 
-
-    #model = listaModelos[5] #choose the model to be used in generation, changing the index will change the model
+    #ajustando diretório para salvar os formulários gerados
+    mydirectory = os.path.dirname(os.path.abspath(__file__))
+    mydirectory = mydirectory.replace('experimentos', 'samples')
+    mydirectory = mydirectory.replace('/modularOpenrouter', f'/{formNumber}')
+    if not os.path.exists(mydirectory):
+        os.makedirs(mydirectory)
 
     for model in listaModelos:
         if model == 'google/gemini-2.0-flash-001':
             experiment = 'sample_MO_Gemini20Flash'
-        elif model == 'gpt-4o':
+        elif model == 'gpt-4o' or model == 'openai/gpt-4o':
             experiment = 'sample_MO_GPT4o'
         elif model == 'openai/gpt-4o-mini':
             experiment = 'sample_MO_GPT4oMini'
@@ -107,33 +121,35 @@ if __name__ == "__main__":
             experiment = 'sample_MO_Gemini25Pro'
         else:
             experiment = 'sample_MO_OpenRouter'
-        for i in range(1,10,1): #number of forms to be generatedç~~~
+        for i in range(1): #number of forms to be generated
+            tempo = getTime() #get current time to be used in file name
             try:
-                print(f'Tentativa formulário {i+1}...')
-                generatedForm = generatedForm = generateJSON(
+                print(f'Tentativa formulário {experiment}...')
+                generatedLog = generateJSON(
                     userInput=userForm,
                     acID='TML',
                     name='formularioTeste',
                     modelo=model)
-                
-                #saving sample to my computer
-                mydirectory = os.path.dirname(os.path.abspath(__file__))
-                mydirectory = mydirectory.replace('experimentos', 'samples')
-                mydirectory = mydirectory.replace('/modularOpenrouter', '')
-                if not os.path.exists(mydirectory):
-                    os.makedirs(mydirectory)
 
-                if os.name == 'nt': #windows
-                    with open(f'{mydirectory}\\{experiment}_{getTime()}.json', 'w') as outfile:
-                        json.dump(generatedForm, outfile)
-                else: #linux or others
-                    with open(f'{mydirectory}/{experiment}_{getTime()}.json', 'w') as outfile:
-                        json.dump(generatedForm, outfile) 
+
+                #salvando log
+                with open(f'{mydirectory}/log_{experiment}_{tempo}.json', 'w') as log_file:
+                        json.dump(generatedLog, log_file) #save generation log for analysis
+
+                if 'finalForm' in generatedLog:
+                    generatedForm = generatedLog['finalForm'] #get final form structure from generation log
+                    with open(f'{mydirectory}/{experiment}_{tempo}.json', 'w') as json_file:
+                        json.dump(generatedForm, json_file) #save generated form as json file
+                else:
+                    print(f'Formulário {experiment} gerado com erros, verifique o log para mais detalhes.')
 
             except Exception as e:
-                print(f'Error generating form {i+1}: {e}')
-                with open(f'error_log_{experiment}_{getTime()}.txt', 'a') as error_file:
-                    error_file.write(f'{getTime()} - Error generating form {i+1}: {e}\n')
+                print(f'Error generating form {experiment}: {e}')
+                with open(f'{mydirectory}/error_log_{experiment}_{tempo}.txt', 'a') as error_file:
+                    error_file.write(f'{getTime()} - Error generating form {experiment}: {e}\n')
                 pass
         
             #sleep(15) #sleep to avoid hitting rate limits
+
+#with open(f'error_log_{modelo}_{getTime()}.json', 'w') as error_file:
+#            json.dump(generationLog, error_file) #save error log
