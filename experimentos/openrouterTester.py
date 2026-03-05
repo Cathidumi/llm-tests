@@ -49,7 +49,7 @@ def get_list():
 
 if __name__ == "__main__":
     #tester()
-    get_list()
+    #get_list()
     print()
-    #get_limits()
+    get_limits()
 

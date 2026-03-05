@@ -356,30 +356,82 @@ def generateItemContainer(userInput, modelo):
         match prompt["typeQuestion"]:
             case "SingleSelectionQuestion":
                 element = singleSelectionQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = singleSelectionQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "CheckboxQuestion":
                 element = checkboxQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = checkboxQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "CalendarQuestion":
                 element = calendarQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = calendarQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "IntegerQuestion":
                 element = integerQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = integerQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "DecimalQuestion":
                 element = decimalQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = decimalQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "TextQuestion":
                 element = textQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = textQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "EmailQuestion":
                 element = emailQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = emailQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "TimeQuestion":
                 element = timeQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = timeQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "PhoneQuestion":
                 element = phoneQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = phoneQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "TextItem":
                 element = textItem(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = textItem(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "AutocompleteQuestion":
                 element = autocompleteQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = autocompleteQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "FileUploadQuestion":
                 element = fileUploadQuestion(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = fileUploadQuestion(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "ImageItem":
                 element = imageItem(json.dumps(prompt), modelo=modelo)
+                try:
+                    element_json = json.loads(element) #try to parse the element as JSON
+                except json.JSONDecodeError:
+                    element = imageItem(json.dumps(prompt), modelo=modelo) #if it fails, try to generate the element again
             case "GridIntegerQuestion":
                 pass
             case "GridTextQuestion":

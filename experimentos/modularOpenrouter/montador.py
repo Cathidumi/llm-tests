@@ -79,8 +79,8 @@ def getTime():
 
 if __name__ == "__main__":
 
-    #listaModelos = ['google/gemini-2.0-flash-001', 'gpt-4o', 'openai/gpt-4o-mini','google/gemini-2.5-flash-lite' ,'google/gemini-2.5-flash']
-    listaModelos = ['google/gemini-2.5-flash-lite'] #test with only one model to avoid hitting rate limits during development
+    listaModelos = ['google/gemini-2.0-flash-001', 'gpt-4o', 'openai/gpt-4o-mini','google/gemini-2.5-flash-lite' ,'google/gemini-2.5-flash']
+    #listaModelos = ['google/gemini-2.5-flash-lite'] #test with only one model to avoid hitting rate limits during development
     #listaModelos = ['google/gemini-2.0-flash-001']
     
     #formulário de entrada
